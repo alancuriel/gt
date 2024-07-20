@@ -55,11 +55,9 @@ func writeTodosToFile() {
 	var line string
 
 	for _,todo := range todos {
-
 		line += (todo.name + string(TODO_FILE_DELIM) +
 			strconv.FormatBool(todo.completed) + string(TODO_FILE_DELIM) +
 			todo.created.Format(time.RFC822Z) + "\n")
-		fmt.Println(todos)
 	}
 
 	data := []byte(line)
@@ -115,7 +113,7 @@ func printTodos(completed bool) {
 	i := 1
 	for _, td := range todos {
 		if td.completed == completed {
-			formattedTime := td.created.Format("Mon _2 3:4pm")
+			formattedTime := td.created.Format("Mon _2 3:04pm")
 			fmt.Printf("%d. %s\n", i, td.name)
 			fmt.Printf("  • %s\n", formattedTime)
 			i++

@@ -25,15 +25,17 @@ var completeCmd = &cobra.Command{
 
 		if err != nil {
 			fmt.Println("Please provide a valid todo number to complete eg. 1")
+			return
 		}
 
 		readTodosFromFile()
+		refreshTodoDueDatesIfNeeded()
 
 		var count int64 = 0
 		completed := false
 
 		for i,todo := range todos {
-			if todo.completed == false {
+			if !todo.completed {
 				if count+1 == todoToRemove {
 					todos[i].completed = true
 					completed = true

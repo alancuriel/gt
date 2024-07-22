@@ -14,6 +14,7 @@ var listCmd = &cobra.Command{
 	Long:  `List tasks todo that are completed`,
 	Run: func(cmd *cobra.Command, args []string) {
 		readTodosFromFile()
+		refreshTodoDueDatesIfNeeded()
 		printTodos(false)
 	},
 }

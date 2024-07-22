@@ -13,6 +13,7 @@ var rootCmd = &cobra.Command{
 	Long:  `A Fast daily todo cli app with built in reminders`,
 	Run: func(cmd *cobra.Command, args []string) {
 		readTodosFromFile()
+		refreshTodoDueDatesIfNeeded()
 		printTodos(false)
 	},
 }
